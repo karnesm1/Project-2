@@ -2,26 +2,36 @@
 Written by Matthew Karnes
 ------------------------------------------------------------------*/
 
+#include "TreeNode.h"
 #include <iostream>
 #include <set>
 #include <string>
-#include "TreeNode.H"
 
-    
-TreeNode::TreeNode (string lname, string fname, tree*ptr) {
+
+TreeNode::TreeNode(string lname, string fname) {
     lname = lname;
     leftSide = NULL;
     rightSide = NULL;
-    treeSize = 0;
+    count = 1;
+    parent = NULL;
+    firstNames.insert(fname);
 }
 
 TreeNode::~TreeNode () {
-  DeleteTree();
 }
 
+string TreeNode::GetLastName (){
+        return (lname);
+        }
 
-void Tree:: Insert (){
+int TreeNode::GetCount(){
+        return (count);
+    }
+
+set GetFirstNames(){
+        return (firstNames);
+    }
+
   
   
     
-}
