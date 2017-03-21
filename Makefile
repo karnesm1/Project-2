@@ -1,4 +1,4 @@
-SRCS =  LLStacks.C LLQueue2.C Calculator.C 
+SRCS =  TreeNode.C BinaryTree.C
 EXEC = calc
 
 OBJS = $(SRCS:.C=.o)
