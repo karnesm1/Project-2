@@ -19,9 +19,8 @@ class BinaryTree {
     
     TreeNode* Insert(string lname);
     
-    bool Delete();
+    void Delete(string lname);
     
-    string Print();
     
     private:
         TreeNode* root;

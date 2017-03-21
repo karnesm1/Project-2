@@ -9,6 +9,7 @@ BinaryTree::BinaryTree(){
 }
 
 BinaryTree::~BinaryTree(){
+    
 }
 
 TreeNode* BinaryTree::Insert(string lname){
@@ -24,21 +25,25 @@ TreeNode* BinaryTree::Insert(string lname){
     return (temp);
 }
 
-TreeNode* BinaryTree::Search(TreeNode*root, string lname){
-     TreeNode* temp= new TreeNode(lname);
-
-    if(root->lname==lname){
-        return (root);
+TreeNode* BinaryTree::Search(string lname){
+     TreeNode* temp= root;
+while(temp->lname!=lname){
+    if(temp->lname > lname){
+        temp=temp->leftSide;
     }
-    if(root->leftSide->lname==lname){
-        return (root->leftSide)
+    
+    if(temp->lname < lname){
+        temp=temp->rightSide;
     }
-    else{
-        
-    }
+    
+}
+    return (temp);
 }
 
-
+void BinaryTree::Delete(string lname){
+    TreeNode* temp = Search(lname);
+    temp->alive=false;
+}
 
 
 

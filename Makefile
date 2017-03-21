@@ -1,4 +1,4 @@
-SRCS =  TreeNode.C BinaryTree.C
+SRCS =  TreeNode.C BinaryTree.C Tester.C
 EXEC = calc
 
 OBJS = $(SRCS:.C=.o)
