@@ -11,10 +11,24 @@ class TreeNode{
 
     public: 
     
+    /*------------------------------------------------------------------
+The default TreeNode constructor.
+
+Preconditions: none.
+Postconditions: count = 1,leftSide = NULL, rightSide=NULL, lname=lname, parent=NULL, alive=true.
+------------------------------------------------------------------*/
     TreeNode(string lname);
     
+    /*------------------------------------------------------------------
+The default TreeNode destructor.
+
+Preconditions: none.
+Postconditions: none doesn't need to destroy anything
+------------------------------------------------------------------*/
     ~TreeNode();
     
+    //various things used to change or return
+    //instance variables
     string GetLastName();
     int GetCount();
     TreeNode* GetLeft();
@@ -28,6 +42,7 @@ class TreeNode{
     void SetAlive();
     
     private:
+    //instance variables used by the TreeNode
         string lname;
         int count;
         set<string> firstNames;
