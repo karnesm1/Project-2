@@ -16,7 +16,7 @@ using namespace std;
 class BinaryTree {
 
 
-    public:
+ public:
     /*------------------------------------------------------------------
 The default BinaryTree constructor.
 
@@ -64,7 +64,7 @@ InOrder prints the tree.
 Preconditions: There is a tree.
 Postconditions: The tree is printed.
 ------------------------------------------------------------------*/
-    void Print(TreeNode*input);
+    void Print();
     /*------------------------------------------------------------------
 Returns the amount of names in the tree.
 
@@ -73,7 +73,9 @@ Postconditions: The count is shown.
 ------------------------------------------------------------------*/
     int Count();
     
-    private:
+private:
+
+    //Instance variables
         TreeNode* root;
         int count;
     /*------------------------------------------------------------------
@@ -97,5 +99,14 @@ Preconditions: a tree
 Postconditions: returns null, or the wanted node.
 ------------------------------------------------------------------*/
         TreeNode* SearchHelp(string lname, TreeNode*input);
+    
+     /*------------------------------------------------------------------
+Goes to the left most name and then prints it and then prints in 
+increasing order.
+
+Preconditions: a tree
+Postconditions: the tree is printed
+------------------------------------------------------------------*/
+        void InOrder(TreeNode*input);
 };
 #endif

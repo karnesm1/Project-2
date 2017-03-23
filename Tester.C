@@ -13,15 +13,15 @@ int main () {
     string newValue;
 
   // Instantiate/construct a bucket object
-  BinaryTree* Tree = new BinaryTree();
+  BinaryTree* Test = new BinaryTree();
   
-    string lastname;
+    string lastname, firstname;
     ifstream(MyInputFile);
     MyInputFile.open("names.txt");
-    MyInputFile>>lastname;
+    MyInputFile>>lastname>>firstname;
     while(!MyInputFile.eof()){
-        Tree->Insert(lastname);
-        MyInputFile>>lastname;
+        Test->Insert(lastname);
+        MyInputFile>>lastname>>firstname;
     }
     MyInputFile.close();
     
@@ -33,13 +33,19 @@ int main () {
     case INSERT:
             cout << "\nEnter the name to be placed: ";
       cin >>newValue;
-        Tree->Insert(newValue);
+            if(Test->Search(newValue)==NULL){
+        Test->Insert(newValue);
+                cout<< "Name added";
+            }
+            else{
+                cout<<"That name is already included";
+            }
             break;
     case SEARCH:
       cout << "\nEnter the name to be found: ";
       cin >>newValue;
-      flag=Tree->Search(newValue);
-            if (flag!=NULL) {
+      flag=Test->Search(newValue);
+            if (flag!=NULL && flag->GetAlive()==true) {
 		  cout << "\n Found the name given";
       } else {
 		  cout << "\nCould not find the name";
@@ -49,13 +55,13 @@ int main () {
     case DELETE:
             cout << "\nEnter the name to be deleted: ";
       cin >>newValue;
-        Tree->Delete(newValue);
+        Test->Delete(newValue);
             break;
     case COUNT:
-            cout << "\nThe number of people is: " << Tree->Count();
+            cout << "\nThe number of people is: " << Test->Count();
             break;
     case PRINT:
-            Tree->Print(Tree->root);
+            Test->Print();
             break;
 }
     // Get the user's intention

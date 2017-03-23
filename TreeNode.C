@@ -17,8 +17,8 @@ The default TreeNode constructor.
 Preconditions: none.
 Postconditions: count = 1,leftSide = NULL, rightSide=NULL, lname=lname, parent=NULL, alive=true.
 ------------------------------------------------------------------*/
-TreeNode::TreeNode(string lname) {
-    lname = lname;
+TreeNode::TreeNode(string name) {
+    lname = name;
     leftSide = NULL;
     rightSide = NULL;
     count = 1;

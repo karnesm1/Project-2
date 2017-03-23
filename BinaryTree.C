@@ -43,12 +43,17 @@ void BinaryTree::Insert(string lname){
     //check if root is null
     if (root==NULL){
         root=temp;
-        cout<<"Root added";
     }
     //set next node
     else{
         TreeNode*parent=FindParent(root, lname);
         temp->SetParent(parent);
+            if(parent->GetLastName()>temp->GetLastName()){
+                parent->SetLeft(temp);
+                    }
+            else{
+                parent->SetRight(temp);
+                }
     }
     count++;
 }
@@ -74,7 +79,12 @@ void BinaryTree::Delete(string lname){
     TreeNode* temp;
     temp = Search(lname);
     temp->SetAlive();
+    if(temp->GetAlive()==false){
     count--;
+    }
+    else{
+        count++;
+    }
 }
 
 /*------------------------------------------------------------------
@@ -83,15 +93,8 @@ InOrder prints the tree.
 Preconditions: There is a tree.
 Postconditions: The tree is printed.
 ------------------------------------------------------------------*/
-void BinaryTree::Print(TreeNode*input){
-    
-   if(input->GetLeft()==NULL){
-       cout<<input->GetLastName();
-        }
-     Print(input->GetLeft());
-          
-     Print(input->GetRight());
-    }
+void BinaryTree::Print(){
+   InOrder(root);
 }
 
 /*------------------------------------------------------------------
@@ -118,20 +121,20 @@ TreeNode* BinaryTree::FindParent(TreeNode*input, string lname){
         if(input->GetLastName() > lname){  
             if(input->GetLeft()==NULL){
                 return input;
-            }
+                    }
             //if not this calls FindParent on the left child
             else{
                 return (FindParent(input->GetLeft(), lname));
-            }   
-                }
+                    }   
+            }
         //does the same as above but for right child
         if(input->GetLastName() < lname){ 
             if(input->GetRight()==NULL){
                 return input;
             }
         
-        else{
-           return  (FindParent(input->GetRight(), lname));
+            else{
+                return  (FindParent(input->GetRight(), lname));
         }
         }
     return (input);
@@ -175,7 +178,23 @@ TreeNode* BinaryTree::SearchHelp(string lname, TreeNode*input){
         }
     }
 
+ /*------------------------------------------------------------------
+Goes to the left most name and then prints it and then prints in 
+increasing order.
 
+Preconditions: a tree
+Postconditions: the tree is printed
+------------------------------------------------------------------*/
+void BinaryTree::InOrder(TreeNode*input){  
+    if(input==NULL){
+        return;
+        }
+    InOrder(input->GetLeft());
+    
+    cout<<input->GetLastName()<<endl;
+    
+    InOrder(input->GetRight());
+}
 
 
 
